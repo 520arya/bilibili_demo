@@ -5,7 +5,7 @@
   <view class="nav_wrap">
     <!-- 滚动区域组件 -->
     <scroll-view class="nav" scroll-x>
-      <view bindtap="activeNav" data-index="{{index}}" class="nav_item {{index===currentIndexNav?'active':''}}" wx:for="{{navList}}" wx:key="{{index}}">
+      <view bindtap="activeNav" data-index="{{index}}" class="nav_item {{index===currentIndexNav?'active':''}}" wx:for="{{navList}}" wx:key="index">
         {{item.text}}
       </view>
     </scroll-view>
@@ -13,7 +13,7 @@
   <!-- 轮播图 -->
   <view class="slides">
     <swiper autoplay indicator-dots circular>
-      <swiper-item wx:for="{{swiperList}}" wx:key="{{index}}">
+      <swiper-item wx:for="{{swiperList}}" wx:key="index">
         <navigator>
         <image mode="widthFix" src="{{item.src}}"/></navigator>
       </swiper-item>
@@ -21,13 +21,13 @@
   </view>
   <!-- 视频列表 -->
   <view class="video_wrap">
-    <navigator url="../detail/detail?id={{item.aid}}" class="video_item" wx:for="{{videoList}}" wx:key="{{index}}">
+    <navigator url="../detail/detail?id={{item.aid}}&title={{item.tname}}" class="video_item" wx:for="{{videoList}}" wx:key="index">
     <!-- 图片容器 -->
     <view class="video_img">
       <!-- 图片 -->
       <image mode="widthFix" src="{{item.pic}}" mode=""/>
       <!-- 视频信息 -->
-      <view class="video_info">
+      <view class="video_info" >
         <!-- 播放量 -->
         <view class="play_count_wrap">
           <!-- 图标 -->
@@ -50,4 +50,5 @@
     </view>
     </navigator>
   </view>
+  
 </view>

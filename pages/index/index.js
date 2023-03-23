@@ -38,38 +38,41 @@ Page({
     })
   },
   //获取首页导航数据 接口失效，自定义data
-  // getNavList() {
-  //   let that = this;
-  //利用小程序内置发送请求方法
-  //   wx.request({
-  //     url: 'https://easy-mock.com/mock/5c1dfd98e8bfa547414a5278/bili/navList',
-  //     success(res) {
-  //       console.log(res);
-  //       if (res.data.code === 0) {
-  //         that.setData({
-  //           navList: res.data.data.navList
-  //         })
-  //       }
-  //     }
-  //   })
-  // },
+/*   getNavList() {
+    let that = this;
+  利用小程序内置发送请求方法
+    wx.request({
+      url: 'https://easy-mock.com/mock/5c1dfd98e8bfa547414a5278/bili/navList',
+      success(res) {
+        //console.log(res);
+        if (res.data.code === 0) {
+          that.setData({
+            navList: res.data.data.navList
+          })
+        }
+      }
+    })
+  }, */
   //获取轮播图数据
-  // getSwiperList() {
-  //   let that = this;
-  //   wx.request({
-  //     url: '',
-  //     success(res) {
-  //       console.log(res, '<-res->');
-  //       if (res.data.code === 0) {
-  //         that.setData({
-  //           swiperList: res.data.data.swiperList
-  //         })
-  //       }
-  //     }
-  //   })
-  // },
-  //获取视频列表数据
+ /*  getSwiperList() {
+    wx.request({
+      url: 'https://www.escook.cn/slides',
+      success:(res)=> {
+        //console.log(res, '<-res->');
+        if (res.data.code === 0) {
+          this.setData({
+            swiperList: res.data.data.swiperList
+          })
+        }
+      }
+    })
+  }, */
+  //获取电影视频列表数据
   getVideoList() {
+    //显示Loading效果
+    wx.showLoading({
+      title: '数据加载中...',
+    })
     wx.request({
       url: 'https://www.bilibili.com/index/ding.json',
       success:(res)=>{
@@ -77,20 +80,27 @@ Page({
           this.setData({
             videoList: res.data.movie
           })
+          console.log(res.data)
         }
+      },
+      complete:()=>{
+        //隐藏Loading效果
+        wx.hideLoading()
       }
     })
-  },
+    },
+
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad(options) {
     //获取首页导航数据
     // this.getNavList();
     //获取轮播图数据
     // this.getSwiperList();
     //获取视频列表数据
     this.getVideoList();
-  }
+  },
+  
 })

@@ -7,11 +7,11 @@
     <image class="detail_img" src="{{detail.pic}}" />
     <!-- <!__ <video src="detail.redirect_url" controls="{{true}}" /> __> -->
     <!-- 视频描述 -->
-    <text class="detail_des">{{detail.desc}}</text>
+    <text class="detail_des" user-select>{{detail.desc}}</text>
   </view>
   <!-- 推荐视频 -->
   <view class="other_list">
-    <navigator class="item_other" wx:for="{{red}}" wx:key="{{index}}">
+    <navigator class="item_other" wx:for="{{red}}" wx:key="index">
       <!-- 图片容器 -->
       <view class="other_img_wrap">
         <image src="{{item.pic}}" mode="widthFix"></image>

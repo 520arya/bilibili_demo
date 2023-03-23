@@ -7,6 +7,7 @@ Page({
   data: {
     detail: {}, //视频详情
     red: [], //推荐视频
+    query:{}//页面传递过来的参数
   },
 
   /**
@@ -16,7 +17,10 @@ Page({
     // console.log(options)
     let videoId=options.id;
     this.getCurrentVideo(videoId);
-    this.getRecommend()
+    this.getRecommend();
+    this.setData({
+      query:options
+    })
   },
   //根据id获取视频详情
   getCurrentVideo(videoId){
@@ -51,6 +55,12 @@ Page({
           })
         }
       }
+    })
+  },
+  // 动态导航标题
+  onReady:function(){
+    wx.setNavigationBarTitle({
+      title: this.data.query.title,
     })
   }
 })
