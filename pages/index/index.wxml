@@ -33,7 +33,7 @@
           <!-- 图标 -->
           <text class="fa fa-play-circle-o"></text>
           <!-- 数值 -->
-          <text class="play_count">{{item.attribute}}</text>
+          <text class="play_count">{{tools.change(item.attribute)}}</text>
         </view>
         <!-- 评论量 -->
         <view class="comment_count_wrap">
@@ -52,3 +52,4 @@
   </view>
   
 </view>
+<wxs module="tools" src="../../utils/tools.wxs"></wxs>

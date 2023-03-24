@@ -1,0 +1,8 @@
+function change(num){
+  if(num<10000)return num
+  num=num/10000
+  return num.toFixed(1)+'万'
+}
+module.exports={
+  change:change
+}

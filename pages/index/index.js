@@ -78,7 +78,7 @@ Page({
       success:(res)=>{
         if (res.statusCode === 200) {
           this.setData({
-            videoList: res.data.movie
+            videoList: res.data.music
           })
           console.log(res.data)
         }
