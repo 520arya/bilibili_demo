@@ -68,29 +68,23 @@ Page({
     })
   }, */
   //获取电影视频列表数据
-  getVideoList() {
+  async getVideoList() {
     //显示Loading效果
     wx.showLoading({
       title: '数据加载中...',
     })
-    wx.request({
-      url: 'https://www.bilibili.com/index/ding.json',
-      success:(res)=>{
-        if (res.statusCode === 200) {
-          this.setData({
-            videoList: res.data.music
-          })
-          console.log(res.data)
-        }
-      },
-      complete:()=>{
-        //隐藏Loading效果
-        wx.hideLoading()
-      }
+    const res= await wx.p.request({
+      url: 'https://www.bilibili.com/index/ding.json',   
     })
-    },
-
-
+    if (res.statusCode === 200) {
+      this.setData({
+        videoList: res.data.movie
+      })
+      console.log(res.data)
+    }
+    //隐藏Loading效果
+    wx.hideLoading()    
+  },
   /**
    * 生命周期函数--监听页面加载
    */

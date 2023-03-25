@@ -12,6 +12,7 @@
     "navigationBarTextStyle":"white"
   },
   "tabBar": {
+    "custom":true,
     "selectedColor": "#FF99CC",
     "list": [{
       "pagePath": "pages/index/index",
@@ -30,6 +31,10 @@
       "selectedIconPath": "/images/tabs/my-active.png"
     }]
   },
-  "style": "v2",
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "van-button":"@vant/weapp/button/index",
+    "van-tabbar": "@vant/weapp/tabbar/index",
+    "van-tabbar-item": "@vant/weapp/tabbar-item/index"
+  }
 }
